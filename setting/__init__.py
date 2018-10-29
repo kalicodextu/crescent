@@ -1,7 +1,11 @@
+import sys
+import yaml
 from xylogger import BaseLogger
 
-
 config = None
+dockerfile = None
+with open(sys.argv[1]) as f:
+    config = yaml.load(f)
 
 logger = BaseLogger(
     level=config.get('logging_level', 'debug'),
